@@ -34,7 +34,7 @@ public class CashbackHackServiceTest {
     @Test
     public void shouldRemainIfAboveBound() {
         int actual = service.remain(1100);
-        int expected = -100;
+        int expected = 900;
         assertEquals(actual, expected);
     }
 }

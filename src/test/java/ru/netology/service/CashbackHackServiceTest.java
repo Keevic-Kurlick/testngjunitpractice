@@ -1,20 +1,20 @@
 package ru.netology.service;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
-import static org.junit.Assert.*;
 
 public class CashbackHackServiceTest {
     private CashbackHackService service;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         service = new CashbackHackService();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         service = null;
     }
@@ -23,21 +23,21 @@ public class CashbackHackServiceTest {
     public void shouldRemainIfUnderBound() {
         int expected = 100;
         int actual = service.remain(900);
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldRemainIfEqualsBound() {
         int expected = 0;
         int actual = service.remain(1000);
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldRemainIfAboveBound() {
         int expected = 900;
         int actual = service.remain(1100);
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
 }
